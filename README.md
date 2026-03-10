@@ -22,6 +22,24 @@ Without a way to **search analytical knowledge semantically**, organizations str
 
 ---
 
+# Stakeholder Insights
+
+To understand how duplicated analytical work emerges in enterprise environments, this project simulates insights that might be gathered through stakeholder conversations with analysts and operations managers.
+
+Key observations from these discussions include:
+
+• Analysts frequently recreate reports because previous analyses are difficult to locate.
+
+• Knowledge bases typically rely on **keyword search**, which fails when different teams use different terminology for similar problems.
+
+• Teams often operate in **departmental silos**, meaning analysts are unaware of similar work completed by other groups.
+
+• Analysts spend significant time searching internal documentation before deciding to recreate analyses from scratch.
+
+These insights suggest that organizations need **semantic knowledge discovery tools** that allow analysts to locate relevant work even when report titles or keywords differ.
+
+---
+
 # Solution
 
 This system simulates an enterprise analytics environment and builds an AI pipeline that:
