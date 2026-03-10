@@ -130,6 +130,25 @@ Furthermore, it demonstrates how semantic analysis can surface hidden inefficien
 
 ---
 
+# KPI Framework for Knowledge Reuse
+
+To operationalize a knowledge intelligence system in a real enterprise environment, organizations need clear metrics to measure knowledge reuse and analytical efficiency.
+
+The following KPIs can be used to monitor duplication and knowledge utilization across teams.
+
+| KPI | Definition | Business Purpose |
+|----|----|----|
+| Duplicate Report Rate | Percentage of reports identified as semantically similar to previous analyses | Measures duplicated analytical work |
+| Knowledge Reuse Rate | Percentage of analytical work that references existing reports | Indicates effectiveness of knowledge discovery |
+| Search Success Rate | Percentage of semantic searches returning relevant reports | Evaluates quality of the knowledge retrieval system |
+| Analyst Hours Saved | Estimated analyst time saved by reusing existing reports | Quantifies operational productivity gains |
+| Cost Avoidance | Estimated operational cost prevented through knowledge reuse | Measures financial impact of the system |
+
+Tracking these metrics allows organizations to move from fragmented documentation toward a **data-driven knowledge management strategy.**
+
+---
+
+
 # Technologies Used
 
 * Python
