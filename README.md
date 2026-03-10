@@ -36,6 +36,25 @@ The result is a **Knowledge Intelligence Platform** that surfaces hidden duplica
 
 ---
 
+# Business Case
+
+A short business case analysis explaining the operational problem, analytical findings, and estimated cost impact of duplicated analytical work is available below.
+
+📄 **Business Case Document**  
+[Enterprise Knowledge Intelligence Platform – Business Case](docs/business_case_enterprise_knowledge_platform.pdf)
+
+The document outlines:
+
+• the operational inefficiency caused by duplicated analytics reports  
+• how semantic search can improve knowledge reuse  
+• estimated cost impact of duplicated analytical work  
+• recommendations for enterprise knowledge management systems
+
+This document presents the project from a **business decision-making perspective**, similar to how a data or business analyst might present findings to leadership.
+
+---
+
+
 # System Architecture
 
 ![System Architecture](screenshots/architecture.png)
@@ -105,7 +124,9 @@ In a simulated enterprise dataset of **300 internal analytics reports**, the sys
 * **72% duplication rate**
 * **$101,400 estimated duplicated analyst effort**
 
-This demonstrates how semantic analysis can surface hidden inefficiencies in analytical workflows.
+These results illustrate how knowledge fragmentation across teams can lead to repeated analytical work and unnecessary operational cost.
+
+Furthermore, it demonstrates how semantic analysis can surface hidden inefficiencies in analytical workflows.
 
 ---
 
