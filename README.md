@@ -95,6 +95,34 @@ Streamlit Intelligence Dashboard
 
 ---
 
+# Methodology & Design Decisions
+
+This project was designed to simulate how modern enterprises could use semantic AI systems to improve knowledge discovery and reduce duplicated analytical work. Several design decisions were made to balance accuracy, scalability, and implementation simplicity.
+
+### Why Sentence Transformers?
+
+Sentence Transformers were used to convert enterprise reports into **semantic embeddings**. Unlike traditional keyword methods such as TF-IDF, transformer-based embeddings capture the meaning of sentences and paragraphs.
+
+This allows the system to detect reports that describe the **same analytical work using different wording**, which is common in enterprise environments.
+
+### Why Vector Similarity Search?
+
+Vector similarity search enables the system to identify semantically related reports by comparing embedding vectors. This approach allows analysts to discover similar work even when report titles, keywords, or phrasing differ.
+
+### Why FAISS?
+
+FAISS (Facebook AI Similarity Search) was selected as the vector search engine because it is optimized for **high-performance similarity search across large embedding datasets**. It allows efficient nearest-neighbor searches even when the number of documents scales to thousands or millions.
+
+### Tradeoffs Considered
+
+Alternative approaches such as **TF-IDF + cosine similarity** or **BM25 keyword search** were considered. While these methods are computationally simpler, they rely heavily on exact keyword overlap and often fail when different teams describe similar analyses using different terminology.
+
+Transformer-based embeddings provide stronger semantic understanding at the cost of higher computational complexity.
+
+For enterprise knowledge systems where discovery and reuse are critical, the additional semantic accuracy is typically worth the tradeoff.
+
+---
+
 # Dashboard
 
 ## Executive Overview
