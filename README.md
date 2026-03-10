@@ -2,124 +2,124 @@
 
 ![Dashboard Preview](screenshots/dashboard_overview.png)
 
-**AI-powered system that detects duplicated analytical work, quantifies knowledge waste, and enables semantic discovery of enterprise reports.**
+AI system for detecting duplicated analytical work, enabling semantic discovery of enterprise reports, and estimating operational knowledge waste.
 
-Large organizations generate thousands of internal analytics reports across departments. Because teams often work in silos, analysts frequently recreate similar analyses without realizing that related work already exists.
+Large organizations generate thousands of internal reports across departments. Because teams often work in silos, analysts frequently recreate analyses that already exist elsewhere in the company.
 
-This project demonstrates how **semantic embeddings, vector search, and retrieval-augmented generation (RAG)** can be used to detect duplicated analytical work and improve enterprise knowledge reuse.
+This project demonstrates how semantic embeddings, vector similarity search, and retrieval-augmented generation (RAG) can be used to identify duplicated analytical work and improve knowledge reuse.
 
 ---
 
 # Problem
 
-In many companies:
+In many organizations:
 
-* Analysts independently create reports on similar topics
-* Knowledge becomes fragmented across teams
-* Duplicated analysis wastes time and resources
+- Analysts independently create reports on similar topics
+- Knowledge becomes fragmented across teams
+- Analysts recreate analyses because previous work is difficult to locate
 
-Without a way to **search analytical knowledge semantically**, organizations struggle to reuse existing insights.
+Most internal knowledge systems rely on keyword search, which fails when similar analyses are described using different terminology.
 
----
-
-# Stakeholder Insights
-
-To understand how duplicated analytical work emerges in enterprise environments, this project simulates insights that might be gathered through stakeholder conversations with analysts and operations managers.
-
-Key observations from these discussions include:
-
-• Analysts frequently recreate reports because previous analyses are difficult to locate.
-
-• Knowledge bases typically rely on **keyword search**, which fails when different teams use different terminology for similar problems.
-
-• Teams often operate in **departmental silos**, meaning analysts are unaware of similar work completed by other groups.
-
-• Analysts spend significant time searching internal documentation before deciding to recreate analyses from scratch.
-
-These insights suggest that organizations need **semantic knowledge discovery tools** that allow analysts to locate relevant work even when report titles or keywords differ.
+Organizations therefore struggle to discover and reuse existing analytical knowledge.
 
 ---
 
 # Solution
 
-This system simulates an enterprise analytics environment and builds an AI pipeline that:
+This project simulates an enterprise analytics environment and builds a pipeline that:
 
-* Converts reports into **semantic embeddings**
-* Detects structurally similar reports using **vector search**
-* Estimates **duplicated analytical effort**
-* Enables **semantic search across reports**
-* Uses an **AI assistant** to explain knowledge patterns
+- Converts reports into semantic embeddings
+- Detects structurally similar reports using vector similarity search
+- Estimates duplicated analytical effort
+- Enables semantic discovery of enterprise reports
+- Provides AI-assisted explanations of knowledge patterns
 
-The result is a **Knowledge Intelligence Platform** that surfaces hidden duplication and improves discoverability of analytical work.
+The result is a prototype Knowledge Intelligence Platform that surfaces duplicated work and improves analytical knowledge reuse.
 
 ---
 
 # Business Case
 
-A short business case analysis explaining the operational problem, analytical findings, and estimated cost impact of duplicated analytical work is available below.
+Enterprise Knowledge Intelligence Platform – Business Case
 
-📄 **Business Case Document**  
-[Enterprise Knowledge Intelligence Platform – Business Case](docs/business_case_enterprise_knowledge_platform.pdf)
+Business Case Document: docs/business_case_enterprise_knowledge_platform.pdf
 
 The document outlines:
 
-• the operational inefficiency caused by duplicated analytics reports  
-• how semantic search can improve knowledge reuse  
-• estimated cost impact of duplicated analytical work  
-• recommendations for enterprise knowledge management systems
+- operational inefficiencies caused by duplicated analytics reports
+- how semantic search improves knowledge reuse
+- estimated cost impact of duplicated analytical work
+- recommendations for enterprise knowledge management systems
 
-This document presents the project from a **business decision-making perspective**, similar to how a data or business analyst might present findings to leadership.
+This analysis presents the project from a business decision-making perspective, similar to how data teams communicate insights to leadership.
 
 ---
-
 
 # System Architecture
 
 ![System Architecture](screenshots/architecture.png)
 
-### Pipeline Overview
+Pipeline Overview
 
-```
-Synthetic Enterprise Reports
-        ↓
-Sentence Transformer Embeddings
-        ↓
-FAISS Vector Similarity Search
-        ↓
-Duplicate Report Detection
-        ↓
-Knowledge ROI Analysis
-        ↓
+Synthetic Enterprise Reports  
+↓  
+Sentence Transformer Embeddings  
+↓  
+FAISS Vector Similarity Search  
+↓  
+Duplicate Report Detection  
+↓  
+Knowledge ROI Analysis  
+↓  
 Streamlit Intelligence Dashboard
-```
 
 ---
 
-# Methodology & Design Decisions
+# Methodology
 
-This project was designed to simulate how modern enterprises could use semantic AI systems to improve knowledge discovery and reduce duplicated analytical work. Several design decisions were made to balance accuracy, scalability, and implementation simplicity.
+## Synthetic Enterprise Data
 
-### Why Sentence Transformers?
+Enterprise reports cannot be publicly shared, so this project generates synthetic enterprise reports using structured templates representing common analytical topics across departments.
 
-Sentence Transformers were used to convert enterprise reports into **semantic embeddings**. Unlike traditional keyword methods such as TF-IDF, transformer-based embeddings capture the meaning of sentences and paragraphs.
+The simulation dataset contains 200 synthetic enterprise reports distributed across multiple departments and analytical themes. Documents discussing similar analytical topics intentionally contain overlapping language patterns to simulate real enterprise knowledge duplication.
 
-This allows the system to detect reports that describe the **same analytical work using different wording**, which is common in enterprise environments.
+---
 
-### Why Vector Similarity Search?
+## Semantic Embeddings
 
-Vector similarity search enables the system to identify semantically related reports by comparing embedding vectors. This approach allows analysts to discover similar work even when report titles, keywords, or phrasing differ.
+Reports are converted into semantic vectors using Sentence Transformers (MiniLM).
 
-### Why FAISS?
+Unlike keyword-based approaches, transformer embeddings capture the semantic meaning of text, allowing the system to identify reports describing similar analytical work even when wording differs.
 
-FAISS (Facebook AI Similarity Search) was selected as the vector search engine because it is optimized for **high-performance similarity search across large embedding datasets**. It allows efficient nearest-neighbor searches even when the number of documents scales to thousands or millions.
+---
 
-### Tradeoffs Considered
+## Vector Similarity Search
 
-Alternative approaches such as **TF-IDF + cosine similarity** or **BM25 keyword search** were considered. While these methods are computationally simpler, they rely heavily on exact keyword overlap and often fail when different teams describe similar analyses using different terminology.
+Embeddings are indexed using FAISS, enabling efficient nearest-neighbor search across document vectors.
 
-Transformer-based embeddings provide stronger semantic understanding at the cost of higher computational complexity.
+This allows the system to discover semantically related reports even when titles or keywords differ.
 
-For enterprise knowledge systems where discovery and reuse are critical, the additional semantic accuracy is typically worth the tradeoff.
+---
+
+## Duplicate Detection
+
+Reports are compared using vector similarity distance.
+
+Lower distance values indicate stronger semantic similarity between documents.
+
+Pairs with similarity distance below 0.35 were classified as potential duplicates after manual inspection of similarity distributions.
+
+---
+
+## Validation
+
+A manually labeled validation sample was used to evaluate duplicate detection performance.
+
+Precision: 1.00  
+Recall: 0.92  
+F1 Score: 0.96  
+
+These results indicate strong performance in identifying semantically similar analytical reports.
 
 ---
 
@@ -129,12 +129,19 @@ For enterprise knowledge systems where discovery and reuse are critical, the add
 
 ![Dashboard Overview](screenshots/dashboard_overview.png)
 
-Shows:
+Displays:
 
-* Total reports analyzed
-* Duplicate report percentage
-* Estimated analyst effort wasted
-* Department-level duplication trends
+- total reports analyzed
+- duplicate report percentage
+- estimated analyst effort wasted
+- department-level duplication patterns
+
+Example dashboard metrics from the simulation:
+
+Total Reports: 200  
+Duplicate Reports: 168  
+Duplicate Rate: 84%  
+Estimated Cost Waste: $78,240
 
 ---
 
@@ -142,7 +149,7 @@ Shows:
 
 ![Duplicate Reports](screenshots/duplicate_detection.png)
 
-Identifies reports with highly similar analytical structure.
+Identifies reports with highly similar analytical structure using semantic similarity analysis.
 
 ---
 
@@ -150,181 +157,108 @@ Identifies reports with highly similar analytical structure.
 
 ![Semantic Search](screenshots/semantic_search.png)
 
-Users can search enterprise reports using **natural language queries** rather than exact titles.
+Users can search enterprise reports using natural language queries rather than exact report titles.
 
 ---
 
-## AI Knowledge Assistant (RAG)
+## AI Knowledge Assistant
 
 ![RAG Assistant](screenshots/rag_assistant.png)
 
-Retrieves relevant reports and generates explanations about analytical patterns and duplication.
-
----
-
-# Example Insight
-
-In a simulated enterprise dataset of **300 internal analytics reports**, the system detected:
-
-* **216 structurally similar reports**
-* **72% duplication rate**
-* **$101,400 estimated duplicated analyst effort**
-
-These results illustrate how knowledge fragmentation across teams can lead to repeated analytical work and unnecessary operational cost.
-
-Furthermore, it demonstrates how semantic analysis can surface hidden inefficiencies in analytical workflows.
+Retrieves relevant reports and generates explanations about analytical patterns and duplicated work.
 
 ---
 
 # KPI Framework for Knowledge Reuse
 
-To operationalize a knowledge intelligence system in a real enterprise environment, organizations need clear metrics to measure knowledge reuse and analytical efficiency.
+Organizations implementing knowledge intelligence systems need measurable indicators of knowledge reuse.
 
-The following KPIs can be used to monitor duplication and knowledge utilization across teams.
-
-| KPI | Definition | Business Purpose |
+| KPI | Definition | Purpose |
 |----|----|----|
-| Duplicate Report Rate | Percentage of reports identified as semantically similar to previous analyses | Measures duplicated analytical work |
-| Knowledge Reuse Rate | Percentage of analytical work that references existing reports | Indicates effectiveness of knowledge discovery |
-| Search Success Rate | Percentage of semantic searches returning relevant reports | Evaluates quality of the knowledge retrieval system |
-| Analyst Hours Saved | Estimated analyst time saved by reusing existing reports | Quantifies operational productivity gains |
-| Cost Avoidance | Estimated operational cost prevented through knowledge reuse | Measures financial impact of the system |
+| Duplicate Report Rate | Percentage of reports identified as structurally similar | Measures duplicated analytical work |
+| Knowledge Reuse Rate | Percentage of analyses referencing previous reports | Measures knowledge reuse |
+| Search Success Rate | Percentage of queries returning relevant reports | Evaluates discovery effectiveness |
+| Analyst Hours Saved | Estimated analyst time saved through reuse | Measures productivity gains |
+| Cost Avoidance | Estimated operational cost prevented | Quantifies financial impact |
 
-Tracking these metrics allows organizations to move from fragmented documentation toward a **data-driven knowledge management strategy.**
+These metrics help organizations move toward data-driven knowledge management systems.
 
 ---
 
-
 # Technologies Used
 
-* Python
-* Sentence Transformers
-* FAISS Vector Search
-* OpenAI API
-* Streamlit
-* Pandas / NumPy
+- Python
+- Sentence Transformers (MiniLM)
+- FAISS Vector Search
+- Streamlit
+- Pandas
+- NumPy
+- scikit-learn (evaluation metrics)
+- OpenAI API
 
 ---
 
 # Project Structure
 
-```
-knowledge-leak-analyzer
-│
-├── app
-│   └── dashboard.py
-│
-├── scripts
-│   ├── generate_data.py
-│   ├── embed_documents.py
-│   ├── detect_duplicates.py
-│   ├── knowledge_search.py
-│   └── rag_assistant.py
-│
-├── data
-│   └── processed
-│
-├── screenshots
-│   └── architecture.png
-│
-└── README.md
-```
+enterprise-knowledge-intelligence-platform
+
+app/  
+dashboard.py  
+
+scripts/  
+generate_data.py  
+embed_documents.py  
+detect_duplicates.py  
+evaluate_duplicates.py  
+knowledge_search.py  
+rag_assistant.py  
+recommend_actions.py  
+calculate_roi.py  
+
+data/  
+raw/  
+processed/  
+
+screenshots/  
+
+README.md  
+requirements.txt
 
 ---
+
 # Pipeline
 
-The analysis pipeline runs in the following stages:
-
-1. Generate synthetic enterprise reports
-   scripts/generate_data.py
-
-2. Convert reports into semantic embeddings
-   scripts/embed_documents.py
-
-3. Detect semantically similar reports
-   scripts/detect_duplicates.py
-
-4. Estimate duplicated analyst effort
-   scripts/calculate_roi.py
-
-5. Recommend actions for duplicated work
-   scripts/recommend_actions.py
-
-6. Enable semantic search across reports
-   scripts/knowledge_search.py
-
-7. Generate AI explanations via RAG
-   scripts/rag_assistant.py
-
-8. Visualize insights in Streamlit dashboard
-   app/dashboard.py
-
----
-
-# How to Run
-
-### Clone repository
-
-```
-git clone https://github.com/yourusername/knowledge-leak-analyzer.git
-cd knowledge-leak-analyzer
-```
-
-### Install dependencies
-
-```
-pip install -r requirements.txt
-```
-
-### Set OpenAI API key
-
-```
-export OPENAI_API_KEY="your_api_key"
-```
-
-### Generate synthetic reports
-
-```
+1. Generate synthetic enterprise reports  
 python scripts/generate_data.py
-```
 
-### Create embeddings
-
-```
+2. Create semantic embeddings  
 python scripts/embed_documents.py
-```
 
-### Detect duplicates
-
-```
+3. Detect semantically similar reports  
 python scripts/detect_duplicates.py
-```
 
-### Run semantic search
+4. Evaluate duplicate detection  
+python scripts/evaluate_duplicates.py
 
-```
+5. Estimate duplicated analytical effort  
+python scripts/calculate_roi.py
+
+6. Run semantic knowledge search  
 python scripts/knowledge_search.py
-```
 
-### Run the RAG assistant
-
-```
+7. Generate AI explanations (RAG)  
 python scripts/rag_assistant.py
-```
 
-### Launch dashboard
-
-```
+8. Launch dashboard  
 streamlit run app/dashboard.py
-```
 
 ---
 
 # Key Concepts Demonstrated
 
-* Semantic embeddings
-* Vector databases
-* Similarity search
-* Knowledge reuse analytics
-* Retrieval-augmented generation (RAG)
-* AI-powered BI dashboards
+- Semantic document embeddings
+- Vector similarity search
+- Duplicate knowledge detection
+- Retrieval-augmented generation (RAG)
+- Knowledge reuse analytics
+- AI-assisted business intelligence dashboards
